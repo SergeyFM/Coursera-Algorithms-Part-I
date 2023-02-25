@@ -40,9 +40,7 @@ public class SocialNetwork {
         }
         if (!allConnected) StdOut.println("Not all members are connected");
     }
-    private static boolean connected(int p, int q) {
-        return root(p) == root(q);
-    }
+
     private static int root(int i) {
         while (i != id[i]) i = id[i];
         return i;
@@ -64,6 +62,5 @@ public class SocialNetwork {
         }
         return size[i] == N || size[j] == N ? true : false;
     }
-
 
 }
