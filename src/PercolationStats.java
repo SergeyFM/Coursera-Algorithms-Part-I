@@ -26,7 +26,7 @@ public class PercolationStats {
         int col = StdRandom.uniformInt(1, nGridSize + 1);
         if (!percolation.isOpen(row, col)) percolation.open(row, col);
       }
-      percolationThreshold[trial] = (double)percolation.numberOfOpenSites() / (nGridSize * nGridSize);
+      percolationThreshold[trial] = (double) percolation.numberOfOpenSites() / (nGridSize * nGridSize);
     }
   }
 
@@ -63,7 +63,7 @@ public class PercolationStats {
     PercolationStats percolationStats = new PercolationStats(n, T);
 
     double elapsedTime = stopwatch.elapsedTime(); // to measure the total running time of PercolationStats for various values of n and T.
-    //System.out.println(String.format("elapsed time = %f", elapsedTime));
+    System.out.println(String.format("elapsed time = %f", elapsedTime));
 
     System.out.println(String.format("mean\t\t\t\t\t=\t%f", percolationStats.mean()));
     System.out.println(String.format("stddev\t\t\t\t\t=\t%f", percolationStats.stddev()));

@@ -54,7 +54,7 @@ public class Percolation {
   // opens the site (row, col) if it is not open already
   public void open(int i, int j) {
 
-    if (!isCoordinateOK(i, j)) throw new java.lang.IndexOutOfBoundsException();
+    if (!isCoordinateOK(i, j)) throw new java.lang.IllegalArgumentException();
 
     int tmp_i = i;
     int tmp_j = j;
@@ -82,7 +82,7 @@ public class Percolation {
   // is the site (row, col) open?
   public boolean isOpen(int i, int j) {
     if (isCoordinateOK(i, j)) return grid[getPtrFromCoordinates(i, j)] == 1;
-    throw new java.lang.IndexOutOfBoundsException();
+    throw new java.lang.IllegalArgumentException();
   }
 
   // is the site (row, col) full?
@@ -95,10 +95,10 @@ public class Percolation {
         // it's full anyway
         if (index < size) return true;
 
-        return ufSecond.connected(index, 0);
+        return ufSecond.find(index) == ufSecond.find(0);
       }
     } else {
-      throw new java.lang.IndexOutOfBoundsException();
+      throw new java.lang.IllegalArgumentException();
     }
 
     return false;
@@ -121,7 +121,7 @@ public class Percolation {
     // corner case: no sites
     if (virtualBottom == 0) return false;
 
-    return ufFirst.connected(virtualTop, virtualBottom);
+    return ufFirst.find(virtualTop) == ufFirst.find(virtualBottom);
   }
 
   // ---------------------------------------------------------------------------------------------------
